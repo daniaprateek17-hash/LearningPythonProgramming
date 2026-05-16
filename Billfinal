@@ -1,0 +1,28 @@
+
+class Bill:
+    def __init__(self):
+        self.name1 = input("Enter first product name: ")
+        self.price1 = float(input("Enter first product price: "))
+
+        self.name2 = input("Enter second product name: ")
+        self.price2 = float(input("Enter second product price: "))
+
+    def calculate_bill(self, gst=False, discount=False):
+        total = self.price1 + self.price2
+
+        if gst:
+            total += total * 0.15
+
+        if discount:
+            total -= total * 0.10
+
+        print("Products:")
+        print(self.name1, "-", self.price1)
+        print(self.name2, "-", self.price2)
+
+        print("Final Bill:", total)
+
+
+bill_calculator = Bill()
+
+bill_calculator.calculate_bill(gst=True, discount=True)
